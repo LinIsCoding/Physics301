@@ -1,12 +1,13 @@
 '''
+    The funtion computes the integral.
+    Accumulate areas together to get the result.
+
     >>> intg(f1, 0, math.pi,1e-7,False)
     (1.9999999842068952, 2.5261390401347354e-08)
     >>> intg(f2, 1, 3,1e-7,False)
     (0.31809239176326926, 5.960471005492199e-08)
 '''
-"""
-The funtion computes the integral.
-"""
+
 import math
 def intg(f, xlo, xhi, tol = 1e-7, print_progress = True):
     interval = 1.
