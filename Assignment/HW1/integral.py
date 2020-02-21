@@ -57,3 +57,15 @@ if __name__ == "__main__":
     print_output(t)
     import doctest
     doctest.testmod()
+
+
+    """
+    Comments from TA:
+    1. In doctest, instead of assert exact answer, assert something like: 
+        # >>> output - real_answer < 1e-7
+        # true
+        # eg:
+        # >>> 2 - intg(lambda x: math.sin(x), 0, math.pi, print_progress=False)[0] < 1e-7
+        # true
+       would be better
+    """
