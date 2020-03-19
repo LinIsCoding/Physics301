@@ -79,3 +79,7 @@ if __name__ == "__main__":
     else :
         integral, diff = gamma(t, tol)
         print('The final integral is {:0.8f}, and the fractional difference is {:0.8f}'.format(integral, diff))
+
+'''
+tol should have a defulat value
+'''
