@@ -35,27 +35,27 @@ class Tone:
         
     def comb_tones(self, weights=[]):
         sum_weights = sum(weights)
-        time_pts = np.linspace(0, self.dur, int(self.dur*self.sr))
+        time_pts = np.linspace(0, self.dur, self.dur*self.sr)
         
         if sum_weights == 0:
-            new_tone = self.orig_signal
-            for key in self.overtones:
-                tone = self.overtones[key]
-                new_tone += tone
+            sum_weights_sq = (1+self.OT_num)**2
+            for i in range(self.OT_num + 1):
+                weights.append(1/np.sqrt(sum_weights_sq)) 
         else :
-            counter = 0
-            new_tone = self.signal*weights[counter]/sum_weights
-            counter += 1
+            if len(weights) < self.OT_num + 1:
+                print("Invalid Input")
+                return
+            else :
+                sum_weights_sq = sum_weights**2
+                for i in range(self.OT_num + 1):
+                    weights[i] = weights[i]/np.sqrt(sum_weights_sq)
         
-            # pre-processing the weights
-            length = len(weights)
-            for i in range(length, self.OT_num):
-                weights.append(0)
-
-            for key in self.overtones:
-                tone = self.overtones[key]*weights[counter]/sum_weights
-                counter += 1
-                new_tone += tone
+        new_tone = self.orig_signal*weights[0]
+        counter = 1
+        for key in self.overtones:
+            tone = self.overtones[key]*weights[counter]
+            counter += 1
+            new_tone += tone
                 
         self.signal = new_tone
         return new_tone
@@ -80,10 +80,12 @@ class Tone:
         plt.title('Real')
         plt.plot(freq, ft.real, 'b-')
         plt.xlim([-freq_lim, freq_lim])
+        plt.ylim([-amp_lim, amp_lim])
         plt.figure()
         plt.title('Imaginary')
         plt.plot(freq, ft.imag, 'g-')
         plt.xlim([-freq_lim, freq_lim])
+        plt.ylim([-amp_lim, amp_lim])
         plt.show()
         
     def plot_sound(self, t_lim = 0.02):
