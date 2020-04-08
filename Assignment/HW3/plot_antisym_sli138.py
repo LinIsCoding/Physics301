@@ -54,3 +54,7 @@ if __name__ == "__main__":
     x1 = args.x1
     x2 = args.x2
     antisym(x1, x2)
+
+    '''
+    antisym function should just return the value
+    '''
