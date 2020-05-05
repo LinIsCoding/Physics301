@@ -62,7 +62,7 @@ class Dolphins:
         self.years_since_procreation = 0
         self.mother = mother
         self.father = father
-        self.death = int(randn()*5 + 35)
+        self.death = int(randn()*5 + 35) # gausian distribution
         self.status = "alive"
 
     def age_record(self):
@@ -89,3 +89,7 @@ class Dolphins:
         if (self.father.name == another.father.name && self.mother.name == another.mother.name) :
             return false
         return true
+
+        '''
+        dolpthins' death should follow gausian distribution     -5
+        '''
