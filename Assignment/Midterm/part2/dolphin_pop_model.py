@@ -347,3 +347,8 @@ if __name__ == "__main__":
     draw()
     find_min_prob_male()
     draw_pic()
+
+'''
+I didn't find the plot file
+you should save it as and pdf file    -5
+'''

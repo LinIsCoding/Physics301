@@ -69,8 +69,8 @@ class Tone:
         else:
             write('temp.wav', sample_rate, outside_signal)
                   
-        sub.call(['afplay', 'temp.wav', '-v', str(vol)])
-        sub.call(['rm', 'temp.wav'])
+        # sub.call(['afplay', 'temp.wav', '-v', str(vol)])
+        # sub.call(['rm', 'temp.wav'])
         
     def plot_fourier(self, sample_rate = 44100, freq_lim = 2000., amp_lim = 1e7):
         signal = self.signal
