@@ -149,6 +149,9 @@ def make_let_im(let_file, dim=16, y_lo=70, y_hi=220, x_lo=10, x_hi=200, edge_pix
         plt.figure(figsize=(4,4))
         plt.imshow(let_im, cmap='gray_r')
         plt.show()
+
+    # Subtract from each image its mean               -5
+    # should be like znew -= np.mean(znew)
         
     let_im_fla = []
     for arr in let_im:
@@ -183,3 +186,9 @@ if __name__ == '__main__':
     X = create_letter_arr()
     alfbet_pca, Xproj, pca_comps = alphabet_pca(X, n_comp=n_comp)
     let_coef = show_pca_im(Xproj, pca_comps, let_idx=let_idx)
+
+'''
+    name this file with 'python pca_letters_[your Canvas login ID].py'          -5
+    use docstring to introduce your functions                                   -3
+    line 153   -5
+    '''
